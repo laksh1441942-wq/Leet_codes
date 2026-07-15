@@ -16,7 +16,6 @@ public:
             }
         }
         int tm = 0;
-        int cnt = 0;
         while(!q.empty()){
             int r = q.front().first.first;
             int c = q.front().first.second;
@@ -33,12 +32,12 @@ public:
                         grid[row][col] = 2;
                         vis[row][col] = 1;
                         q.push({{row,col}, tm + 1} );
-                        cnt++;
+                        cntFresh--;
                     }
                 }
             }
         }
-        if(cnt != cntFresh) return -1;
+        if(cntFresh) return -1;
         return tm;
     }
 };
