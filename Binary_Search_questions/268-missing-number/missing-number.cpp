@@ -2,17 +2,11 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         int low = 0;
-        int high = nums.size()-2;
+        int high = nums.size()-1;
         sort(nums.begin(), nums.end());
-        if(nums.size()-1 == nums[high+1]){
-            return nums.size();
-        }
         while(low<=high){
             int mid = (low+high)/2;
-            if(nums[mid] == mid && nums[mid+1]==mid+2){
-                return mid+1;
-            }
-            else if(nums[mid] == mid){
+            if(nums[mid] == mid){
                 low = mid+1;
             }
             else{
